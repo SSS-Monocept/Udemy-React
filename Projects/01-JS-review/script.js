@@ -229,7 +229,7 @@ console.log(getTotalReviewCount(book));
 
 //Playing with arrays
 
-//Map Method on Array
+// ! Map Method on Array
 //Used to loop over an array and return a array of same lenght with some operations applied on the ekements of the array
 
 const books = getBooks();
@@ -254,3 +254,21 @@ const essentialData = books.map((book) => ({
   author: book.author,
 }));
 essentialData;
+
+// ! Filter Method to filter out data form the array; Here we need to paas an boolean conditions to filter out the data
+const longBook = books
+  .filter((book) => book.pages > 500)
+  .filter((book) => book.hasMovieAdaptation);
+//return a new array, therefore we can apply chaing in fliter
+longBook;
+
+//Task: retrive books having adventure genre
+// const adventureBooks = books.filter((books) =>
+//   books.genres.includes("adventure")
+// );
+//so this will be returning all books object having adveture genre.
+//But if we only need to know the name of those book, then we need to model our data accoding with map(), etc
+const adventureBooks = books
+  .filter((books) => books.genres.includes("adventure"))
+  .map((book) => book.title);
+adventureBooks;
