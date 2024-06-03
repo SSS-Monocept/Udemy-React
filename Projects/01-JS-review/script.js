@@ -363,3 +363,33 @@ const sortingByPages = books
   .map((book) => [book.title, [book.pages]]);
 
 sortingByPages;
+
+// ! Working with Immutable Array
+
+// 1) Adding book object to array
+const newBook = {
+  id: 6,
+  title: "Harry Potter and the Chamber of Secrets",
+  author: "J. K. Rowling",
+};
+
+// When we want to add new object to the array, then:
+// i) We create a new array
+// ii) Spread the current element
+// iii) Add the new element
+const booksAfterAdd = [...books, newBook];
+booksAfterAdd;
+
+// 2) Delete book object from array : We Use filter to delte book with id: 3;
+// Bcoz filter makes the resulting array smaller
+const bookAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
+bookAfterDelete;
+
+// 3) Update book object in the array : We use map method;
+// Bcoz map methods create an updated array with same length as of orignal
+// When we are at the id, that we r looking for, then we create a new object and overide the property that we need to manipulate
+// And ofr all the other books, we simply return that are unchanged.
+const bookAfterUpdate = bookAfterDelete.map((book) =>
+  book.id === 1 ? { ...book, pages: 1 } : book
+);
+bookAfterUpdate;
