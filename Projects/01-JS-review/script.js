@@ -341,3 +341,25 @@ const transformed = data2.reduce((accumulator, currentValue) => {
   return accumulator;
 }, []);
 console.log(transformed); // Output: [2, 4, 6]
+
+// ! Array Sort Method
+const demoArray = [3, 7, 1, 9, 6];
+// const sorted = demoArray.sort((a, b) => a - b); //For accesndin sort
+
+// If the result is negative, a comes before b in the sorted order.
+// If the result is positive, b comes before a.
+// If the result is zero, the order remains unchanged.
+demoArray;
+//are orignal arrya is mutated; not good;
+//therefore use slice(), to crate a copy of the demoArray then use sort; to prevent orignal array mutation
+const sorted = demoArray.slice().sort((a, b) => a - b);
+sorted;
+demoArray;
+
+//sort the books by page lenght
+const sortingByPages = books
+  .slice()
+  .sort((a, b) => b.pages - a.pages)
+  .map((book) => [book.title, [book.pages]]);
+
+sortingByPages;
