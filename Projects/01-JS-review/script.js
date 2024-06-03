@@ -153,10 +153,24 @@ const book = getBook(3); //object
 
 // ! Destructuring : 2 Types --> Obeject Destructuring & Array Destructuring
 
-// Therefore using Object Destructutring to read data form book
+// ! Object Destructutring to read data form book
 const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
-  book;
-console.log(author, title);
+  //   book;
+  // console.log(author, title);
 
-//Its important to give exact name to variable as of object properties.
-//i.e. const { titles_1, author_1 } = book; will not work
+  //Its important to give exact name to variable as of object properties.
+  //i.e. const { titles_1, author_1 } = book; will not work
+
+  // ! Destructutring with Arrays:
+  // Does not relay on the property name of the objects
+  //Rather : Relays on the order of elements in the array.
+
+  console.log(genres);
+//Without Array Destructuring
+
+// const primaryGenre = genres[0];
+// const secondaryGenre = genres[1];
+
+//With Array Destructutring
+const [primaryGenre, secondaryGenre] = genres;
+console.log(primaryGenre, secondaryGenre);
