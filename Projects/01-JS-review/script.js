@@ -272,3 +272,72 @@ const adventureBooks = books
   .filter((books) => books.genres.includes("adventure"))
   .map((book) => book.title);
 adventureBooks;
+
+// ! REDUCE method is most useful and powerfull method to work on arrays in JS
+//  It iterates over each element of the array and applies a callback function that performs some operation on each element and accumulates the result into a single value.
+//  array.reduce(callback, initialValue)
+//  The callback function takes four arguments: accumulator, currentValue, currentIndex, and array.
+//  The initial value of the accumulator can be provided as the second argument.
+//  The final return value of the accumulator is the result of the reduction.
+
+//! Without reduce
+// let sumOfPages = 0;
+// const pagesAllBooks = books.map((book) => {
+//   sumOfPages += book.pages;
+//   return sumOfPages;
+// });
+// sumOfPages;
+// !With Reduce
+
+const pagesAllBooks = books.reduce(
+  //Accumulator is the final value that we want from the array
+  (accumulator, book) => accumulator + book.pages,
+  0
+);
+pagesAllBooks;
+
+// ! Multiple useCases of the reduce method
+
+// 1. Sum of Numbers:
+const numbers = [1, 2, 3, 4, 5];
+const sum = numbers.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  0
+);
+console.log(sum); // Output: 15
+
+// 2. Flattening an Array of Arrays:
+const arrays = [
+  [1, 2],
+  [3, 4],
+  [5, 6],
+];
+const flattened = arrays.reduce(
+  (accumulator, currentValue) => accumulator.concat(currentValue),
+  [] //Accumulator has been intialised to empty array
+);
+console.log(flattened); // Output: [1, 2, 3, 4, 5, 6]
+
+// 3. Counting Instances of Values:
+const names = ["Alice", "Bob", "Charlie", "Alice", "Bob"];
+const nameCounts = names.reduce((accumulator, currentValue) => {
+  accumulator[currentValue] = (accumulator[currentValue] || 0) + 1;
+  return accumulator;
+}, {});
+console.log(nameCounts); // Output: { Alice: 2, Bob: 2, Charlie: 1 }
+
+// 4. Calculating Maximum Value:
+const numbers2 = [10, 5, 20, 15, 30];
+const max = numbers2.reduce(
+  (accumulator, currentValue) => Math.max(accumulator, currentValue),
+  Number.MIN_SAFE_INTEGER
+);
+console.log(max); // Output: 30
+
+// 5. Transforming Data:
+const data2 = [1, 2, 3];
+const transformed = data2.reduce((accumulator, currentValue) => {
+  accumulator.push(currentValue * 2);
+  return accumulator;
+}, []);
+console.log(transformed); // Output: [2, 4, 6]
