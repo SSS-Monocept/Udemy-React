@@ -142,3 +142,21 @@ function getBooks() {
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
+
+// ! Without Destructuring
+
+const book = getBook(3); //object
+// const title = book.title;
+// const author = book.author;
+// console.log(title, author);
+// It takes a lot of manual effort like this
+
+// ! Destructuring : 2 Types --> Obeject Destructuring & Array Destructuring
+
+// Therefore using Object Destructutring to read data form book
+const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
+  book;
+console.log(author, title);
+
+//Its important to give exact name to variable as of object properties.
+//i.e. const { titles_1, author_1 } = book; will not work
