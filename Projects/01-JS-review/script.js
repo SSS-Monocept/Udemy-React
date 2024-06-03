@@ -143,6 +143,8 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
+/*
+
 // ! Without Destructuring
 
 const book = getBook(3); //object
@@ -222,3 +224,33 @@ function getTotalReviewCount(book) {
 }
 
 console.log(getTotalReviewCount(book));
+
+*/
+
+//Playing with arrays
+
+//Map Method on Array
+//Used to loop over an array and return a array of same lenght with some operations applied on the ekements of the array
+
+const books = getBooks();
+
+const demoMap = [1, 2, 3, 4, 5].map((e) => e * 2);
+demoMap;
+books;
+
+const titles = books.map((book) => book.title);
+titles;
+
+// const essentialData = books.map(book => {
+//   return {
+//     title: book.title,
+//     author: book.author,
+//   };
+// });
+
+//similat but without return statemant
+const essentialData = books.map((book) => ({
+  title: book.title,
+  author: book.author,
+}));
+essentialData;
