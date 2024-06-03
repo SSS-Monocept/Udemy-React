@@ -405,8 +405,31 @@ bookAfterUpdate;
 // JS will not wait for the fetch function; rather will continew exectuing subsequent code
 // So how do we wait?
 // ! Note the above fetch func is a PROMISE <pending>
-fetch("https://jsonplaceholder.typicode.com/todos")
-  .then((res) => res.json())
-  .then((data) => console.log(data));
-console.log("Shourya");
+// fetch("https://jsonplaceholder.typicode.com/todos")
+//   .then((res) => res.json())
+//   .then((data) => console.log(data));
+// console.log("Shourya");
 //Note it will first print Shourya, then fetch; Bcoz data arrived later
+
+// ! Asynchronous Javascript : Async/Await
+// Async/Await is a syntactical sugar over Promises in JavaScript, making asynchronous code easier to read and write.
+// It allows writing asynchronous code in a synchronous manner, which enhances code readability and maintainability.
+
+async function getTodos() {
+  // Await keyword is used within an async function to pause execution until a Promise is resolved or rejected.
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const data = await res.json();
+  console.log(data);
+  // The function returns the data obtained from the API.
+  return data;
+}
+
+// Calling an async function returns a Promise.
+const todos = getTodos();
+
+// At this point, the Promise is pending because the asynchronous operation inside getTodos is still in progress.
+console.log(todos); // result of async function is always a promise
+console.log("Shourya");
+
+// The async function getTodos runs asynchronously, allowing other code to continue executing while it fetches data from the API.
+// Once the Promise returned by getTodos is resolved, its result will be available for further processing.
