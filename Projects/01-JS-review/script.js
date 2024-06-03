@@ -227,6 +227,8 @@ console.log(getTotalReviewCount(book));
 
 */
 
+/*
+
 //Playing with arrays
 
 // ! Map Method on Array
@@ -393,3 +395,18 @@ const bookAfterUpdate = bookAfterDelete.map((book) =>
   book.id === 1 ? { ...book, pages: 1 } : book
 );
 bookAfterUpdate;
+
+*/
+
+// ! Asynchronous Javascript : Promises
+// In order to fetch/load data form an API
+
+//fetch("https://jsonplaceholder.typicode.com/todos");
+// JS will not wait for the fetch function; rather will continew exectuing subsequent code
+// So how do we wait?
+// ! Note the above fetch func is a PROMISE <pending>
+fetch("https://jsonplaceholder.typicode.com/todos")
+  .then((res) => res.json())
+  .then((data) => console.log(data));
+console.log("Shourya");
+//Note it will first print Shourya, then fetch; Bcoz data arrived later
