@@ -174,3 +174,10 @@ const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
 //With Array Destructutring
 const [primaryGenre, secondaryGenre] = genres;
 console.log(primaryGenre, secondaryGenre);
+
+// ! Rest Operator ... : It creates an array of all the values that have not been previously destrutured .i.e
+//...GenreN : Makes any array of elements from Genre3 to GenreN; Bcoz Genre1 and Genre2 have already been Destructured.
+const [Genre1, Genre2, ...GenreN] = genres;
+console.log(Genre1, Genre2, GenreN);
+// ! We can only put rest operator at end of destructing operation
+//Therfore console.log(Genre1, ...GenreN, Genre2); will give error
