@@ -181,3 +181,27 @@ const [Genre1, Genre2, ...GenreN] = genres;
 console.log(Genre1, Genre2, GenreN);
 // ! We can only put rest operator at end of destructing operation
 //Therfore console.log(Genre1, ...GenreN, Genre2); will give error
+
+// ! Spread Operator also have ... structure, and more commonly used
+// Spread operator creates a new array, and takes all value from the orignal array and spreeds it intto the new array, and then concatenate wiht new elements
+const newGenre = [...genres, "epic-fantasy"];
+newGenre;
+
+// ! Spread Operator with Objects
+console.log("Using Spread Operator with Objects");
+book;
+const updatedBook = { book, moviePublicationDate: "2001-12-19" };
+updatedBook;
+//Without using ...book; updatedBook created { book{content}, moviePublicationDate: "2001-12-19"}
+//But we just want to add moviePublicationDate: "2001-12-19" within book object
+//book{content, moviePublicationDate: "2001-12-19"}
+const newUpdatedBook = {
+  ...book,
+  //Adding a new property
+  moviePublicationDate: "2001-12-19",
+  //Overwritting the existing pages property
+  pages: 6969,
+};
+newUpdatedBook;
+//We are apredaing out all the properties of book obejct in newUpdatedBook object property, along with adding new property.
+//Therefore, spread properties should alwasy be wriiten first to avoid overwritting
