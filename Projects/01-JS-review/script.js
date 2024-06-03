@@ -205,3 +205,20 @@ const newUpdatedBook = {
 newUpdatedBook;
 //We are apredaing out all the properties of book obejct in newUpdatedBook object property, along with adding new property.
 //Therefore, spread properties should alwasy be wriiten first to avoid overwritting
+
+//! TEMPLATE LITERALS
+//Allows to create strings which contains JS variables or contains any JS expression inside of a string
+const summary = `${title} is a book !`;
+summary;
+
+function getTotalReviewCount(book) {
+  //Without Optional Chaining, is something is undefined then we will be doing undefined.reviewsCount;
+  //const goodRead = book.reviews.goodRead.reviewsCount;
+  //const librarything = book.reviews.librarything.reviewsCount;
+  //Using Optional Chaining :  By adding ? before . operator
+  const goodRead = book.reviews.goodRead?.reviewsCount ?? 0;
+  const librarything = book.reviews.librarything?.reviewsCount ?? 0;
+  return goodRead + librarything;
+}
+
+console.log(getTotalReviewCount(book));
